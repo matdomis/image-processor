@@ -39,7 +39,13 @@ void printGrid(uc **m, ull row, ull col) {
 }
 
 void freeGrid(uc **m, ull row) {
-    for (ull i = 0 ; i < row ; i++)
+    for(ull i = 0 ; i < row ; i++)
         free(m[i]);
     free(m);
+}
+
+int pixel_is_valid(ull row, ull col, ull k, ull l) {
+    if (k >= row || l >= col || k < 0 || l < 0)
+        return 0;
+    return 1;
 }

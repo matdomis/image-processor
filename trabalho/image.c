@@ -54,3 +54,35 @@ void rotacaoSimples(_PGMImage *inputImage, _PGMImage *outputImage) {
         for(ull j = 0 ; j < inputImage->col ; j++)
             outputImage->grid[j][i] = inputImage->grid[inputImage->row - 1 - i][j];
 }
+
+void reduzRuido(_PGMImage *inputImage, _PGMImage *outputImage) {
+    outputImage->type = inputImage->type;
+    outputImage->row = inputImage->row;
+    outputImage->col = inputImage->col;
+    outputImage->max_gray = inputImage->max_gray;
+
+    outputImage->grid = allocateGrid(outputImage->grid, outputImage->row, outputImage->col); // ??  
+
+
+    int count;
+    float sum;
+    for(ull i = 0 ; i < inputImage->row ; i++) {
+        for(ull j = 0 ; j < inputImage->col ; j++) {
+            sum = 0;
+            count = 0;
+
+            for(int k = 0 ; k < 3 ; k++) {
+                for(int l = 0 ; l < 3 ; l++) {
+                    if(pixel_is_valid(inputImage->row, inputImage->col, i-1+k, j-1+l)) {
+                        sum += inputImage->grid[i-1+k][j-1+l];
+                        count++;
+                    }
+                }
+            }
+
+            outputImage->grid[i][j] = (uc)(sum/count);
+        }
+
+
+    }
+}

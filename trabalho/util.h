@@ -15,4 +15,6 @@ void printGrid(uc **, ull, ull);
 /* Libera espaço na memória alocada para Grid */
 void freeGrid(uc **, ull);
 
+/* Checa se o pixel é valido para o algoritmo da mediana */
+int pixel_is_valid(ull, ull, ull, ull);
 #endif

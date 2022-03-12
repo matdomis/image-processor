@@ -19,7 +19,7 @@ typedef struct _PGMImage {
 void getImageGrid(FILE *, uc **, ull, ull, int);
 
 /* Função de filtro negativo */
-void filtroNegativo(_PGMImage *, _PGMImage *);
+void filtrmediaoNegativo(_PGMImage *, _PGMImage *);
 
 /* Função de rotação simples */
 void rotacaoSimples(_PGMImage *, _PGMImage *);
