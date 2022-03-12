@@ -3,19 +3,16 @@
 
 #include "image.h"
 
-// Aloca estruturas das imagens
+/* Aloca estruturas das imagens */
 void allocateImages(_PGMImage **, _PGMImage **);
 
-// Converte uma string em unsigned long int
-ull atoul(char *);
-
-// Aloca matriz de uc na heap
+/* Aloca matriz de unsigned char (grid da imagem) */
 uc **allocateGrid(uc **, ull, ull);
 
-// Printa uma matriz
+/* Printa a grid da imagem (usado nos testes do programa, não é necessário) */
 void printGrid(uc **, ull, ull);
 
-// Libera espaço na memórioa após uso da grid
+/* Libera espaço na memória alocada para Grid */
 void freeGrid(uc **, ull);
 
 #endif

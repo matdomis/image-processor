@@ -1,21 +1,15 @@
+#include <stdlib.h>
+#include <string.h>
+
+
 #include "util.h"
 #include "file.h"
 #include "image.h"
 
-#include <stdlib.h>
-#include <string.h>
 
 void allocateImages(_PGMImage **inputImage, _PGMImage **outputImage) {
     *inputImage = malloc(sizeof(_PGMImage));
     *outputImage = malloc(sizeof(_PGMImage));
-}
-
-ull atoul(char *num) {
-    ull temp = 0;
-    for(int i = 0 ; i < strlen(num) ; i++) 
-        temp = temp * 10 + (num[i] - '0');
-
-    return temp;
 }
 
 uc **allocateGrid(uc **m1, ull row, ull col) {
@@ -32,13 +26,14 @@ uc **allocateGrid(uc **m1, ull row, ull col) {
             exit(1);
         }
     }
+
     return m1;
 }
 
 void printGrid(uc **m, ull row, ull col) {
     for(ull i = 0 ; i < row ; i++) {
         for(ull j = 0 ; j < col ; j++)
-            printf("[%u] ", m[i][j]);
+            printf("[%d] ", m[i][j]);
         printf("\n");
     }
 }
