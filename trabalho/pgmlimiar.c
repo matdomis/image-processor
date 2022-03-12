@@ -15,6 +15,7 @@ int main(int argc, char *argv[]) {
     char *inputFile;
     char *outputFile; 
 
+    int limiar = 60;
     /* linha de comando */
     if (argc > 1) {
         int i = 0;
@@ -23,7 +24,9 @@ int main(int argc, char *argv[]) {
                 inputFile = argv[i+1];
             else if (strcmp(argv[i], "-o") == 0)
                 outputFile = argv[i+1];
-            else if ()
+            else if (strcmp(argv[i], "-l") == 0)
+                limiar = atoi(argv[i+1]);
+
         }
     }
 
@@ -44,7 +47,7 @@ int main(int argc, char *argv[]) {
     openFile(&output, outputFile, WRITE);
     
     /*  ~~~~ Redução de Ruído ~~~~ */
-    limiar(inputImage, outputImage);
+    filtroLimiar(inputImage, outputImage, limiar);
     /*  ~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
     createOutputFile(output, outputImage);

@@ -82,7 +82,25 @@ void reduzRuido(_PGMImage *inputImage, _PGMImage *outputImage) {
 
             outputImage->grid[i][j] = (uc)(sum/count);
         }
-
-
     }
+}
+
+void filtroLimiar(_PGMImage *inputImage, _PGMImage *outputImage, int limiar) {
+    outputImage->type = inputImage->type;
+    outputImage->row = inputImage->row;
+    outputImage->col = inputImage->col;
+    outputImage->max_gray = inputImage->max_gray;
+
+    outputImage->grid = allocateGrid(outputImage->grid, outputImage->row, outputImage->col); // ??  
+
+    for(ull i = 0 ; i < inputImage->row ; i++) {
+        for(ull j = 0 ; j < inputImage->col ; j++) {
+            if (inputImage->grid[i][j] >= limiar) 
+                outputImage->grid[i][j] = inputImage->max_gray;
+            
+            else 
+                outputImage->grid[i][j] = 0;
+        }
+    }            
+
 }

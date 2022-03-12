@@ -24,4 +24,8 @@ void filtrmediaoNegativo(_PGMImage *, _PGMImage *);
 /* Função de rotação simples */
 void rotacaoSimples(_PGMImage *, _PGMImage *);
 
+/* Função de limiar */
+void filtroLimiar(_PGMImage *, _PGMImage *, int);
+
+
 #endif
