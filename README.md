@@ -4,6 +4,20 @@ Este projeto visa construir filtros simples para imagens digitais em níveis de 
 
 Projeto desenvolvido para a disciplina de Programação II na Universidade Federal do Paraná (UFPR) [link](https://wiki.inf.ufpr.br/maziero/doku.php?id=c:processamento_de_imagens)
 
+### Compilando o programa
+
+Faça o clone do repositório:
+```
+git clone git@github.com:matdomis/image-processor.git
+```
+
+Compile os arquivos com o comando **make**:
+```
+make all
+```
+
+
+
 ## Filtro negativo
 
 O filtro negativo consiste em converter cada pixel da imagem em seu complemento. Sendo max o valor máximo para um pixel na imagem, o complemento de um pixel com valor v seria max-v.
